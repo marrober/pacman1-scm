@@ -1,0 +1,13 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "pacman1"
+  description: "A really useful application."
+  annotations:
+    gitlab.com/project: github.com/marrober/pacman1
+  tags:
+    - mr-test
+spec:
+  type: service
+  lifecycle: production
+  owner: "marrober" 
