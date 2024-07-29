@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "pacman1"
+  description: "A really useful application."
+  annotations:
+    gitlab.com/project: github.com/marrober/pacman1
+    argocd/app-selector: rht-gitops.com/openshift-gitops=pacman1-root
+    backstage.io/kubernetes-id: pacman1
+    backstage.io/kubernetes-namespace: pacman1-ci
+    argocd/app-name: github.com/marrober/pacman1-root
+    janus-idp.io/tekton: pacman1
+    backstage.io/source-location: url:https://github.com/marrober/pacman1-scm
+    backstage.io/techdocs-ref: url:github.com/marrober/pacman1-scm
+    gitlab.com/project-slug: github.com/marrober/pacman1
+    quay.io/repository-slug: "/pacman1"
+    janus-idp.io/tekton-enabled : 'true'
+  labels:
+    backstage.io/kubernetes-id: pacman1
+  tags:
+    - mr-test
+  links:
+    - url: https://devspaces/#https://github.com/github.com/marrober/pacman1
+      title: OpenShift Dev Spaces (VS Code)
+      icon: web
+    - url: https://devspaces/#https://github.com/github.com/marrober/pacman1?che-editor=che-incubator/che-idea/latest
+      title: OpenShift Dev Spaces (JetBrains IntelliJ)
+      icon: web
+spec:
+  type: service
+  lifecycle: production
+  owner: "marrober" 
+  providesApis:
+    - "pacman1"
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: "pacman1"
+  description: "A really useful application."
+spec:
+  type: openapi
+  lifecycle: production
+  owner: "marrober"
+  definition:
+    $text: ./openapi.yaml
